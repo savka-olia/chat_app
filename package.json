@@ -2,7 +2,7 @@
   "name": "chat-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://savka-olia.github.io/chat_app/",
+  "homepage": "https://savka-olia.github.io/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "classnames": "^2.3.1",
