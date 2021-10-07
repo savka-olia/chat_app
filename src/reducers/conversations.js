@@ -140,7 +140,7 @@ const initialState = {
                 {
                     imageUrl: null,
                     imageAlt: null,
-                    messageText: "Hi Umaru. Are you excited for the first month of school?",
+                    messageText: "Hi. Are you excited for the first month of school?",
                     createdAt: "03/11/21 6:18 pm",
                     isMyMessage: true
                 }
@@ -168,14 +168,14 @@ const initialState = {
             imageUrl: require("../images/profiles/dio.jpg"),
             imageAlt: "Dio Brando",
             title: "Dio Brando",
-            createdAt: "2:49 PM",
+            createdAt: "Aug 18",
             latestMessageText: "Yeah",
             messages: [
                 {
                     imageUrl: null,
                     imageAlt: null,
                     messageText: "Hi",
-                    createdAt: "2:49",
+                    createdAt: "two months ago",
                     isMyMessage: true
                 }
             ]
@@ -197,8 +197,25 @@ const conversationsReducer = (state = initialState, action) => {
 
         return newState;
       }
+      case "NEW_MESSAGE_ADDED": {
+        const newState = { ...state };
+        newState.selectedConversation = { ...newState.selectedConversation };
+        
+        newState.selectedConversation.messages.unshift(
+            {
+                imageUrl: null,
+                imageAlt: null,
+                messageText: action.textMessage,
+                createdAt: "07/11/21",
+                isMyMessage: true
+            },
+        )
+
+        return newState;
+      }
       default:
         return state;
+
     }
   }
   

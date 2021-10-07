@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { conversationChanged } from '../../actions';
+import { conversationChanged, newMessageAdded } from '../../actions/';
 import ConversationSearch from '../../components/conversation/conversation-search/ConversationSearch';
 import ConversationList from '../../components/conversation/conversation-list/ConversationList';
 import NewConversation from '../../components/conversation/new-conversation/NewConversation';
@@ -16,7 +16,8 @@ import './ChatShell.css';
 const ChatShell = ({
     conversations,
     selectedConversation,
-    conversationChanged
+    conversationChanged,
+    onMessageSubmitted
 }) => {
 
     return (
@@ -29,7 +30,7 @@ const ChatShell = ({
             <NewConversation />
             <ChatTitle selectedConversation={selectedConversation} />
             <MessageList messages={selectedConversation.messages} />
-            <ChatForm />
+            <ChatForm onMessageSubmitted={onMessageSubmitted}/>
         </div>
     );
 }
@@ -42,7 +43,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    conversationChanged: conversationId => dispatch(conversationChanged(conversationId))
+    conversationChanged: conversationId => dispatch(conversationChanged(conversationId)),
+    onMessageSubmitted: messageText => { dispatch(newMessageAdded(messageText)); }
 });
 
 export default connect(

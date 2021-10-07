@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import "./Message.css"
 
-const Message = ({isMyMessage, message}) => {
+const Message = ({ isMyMessage, message }) => {
     let messageClass = classNames("message-row", {
         "you-message": isMyMessage,
         "other-message": !isMyMessage
@@ -12,14 +12,14 @@ const Message = ({isMyMessage, message}) => {
 
     return (
         <div className={messageClass}>
-                <div className="message-content">
-                    {imageThumbNail}
-                    <div className="message-text">
-                       {message.messageText}
-                    </div>
-                    <div className="message-time">{message.createdAt}</div>
+            <div className="message-content">
+                {imageThumbNail}
+                <div className="message-text">
+                    {message.messageText}
                 </div>
+                <div className="message-time">{message.createdAt}</div>
             </div>
+        </div>
     )
 }
 

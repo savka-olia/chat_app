@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Chat-Form.css';
 
-function ChatForm() {
+const ChatForm = ({ onMessageSubmitted }) => {
+    const [textMessage, setTextMessage] = useState("");
+    const handleChange = (e) => {
+        setTextMessage(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        onMessageSubmitted(textMessage);
+        setTextMessage('');
+    };
+
     return (
-        <div id="chat-form">
-            
-            <input type="text" placeholder="Type your message" />
-            <img src={require("../../images/icons/send-svgrepo-com.svg")} alt="Send" />
-        </div>
+        <form id="chat-form" onSubmit={handleSubmit}>          
+            <input 
+                type="text" 
+                placeholder="Type your message" 
+                value={textMessage}
+                onChange={handleChange}/>
+            {/* <img src={require("../../images/icons/send-svgrepo-com.svg")} alt="Send" /> */}
+            <button type="submit">Send</button>
+        </form>
     );
 }
 
-export default ChatForm;
+export default ChatForm;    
