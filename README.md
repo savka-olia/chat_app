@@ -1,2 +1,0 @@
-This project will be gradually updated. At the time of the last changes, the function of sending messages has been added (not yet saved after refreshing the page).
-The search function has not worked yet.
