@@ -1,0 +1,48 @@
+.conversation {
+    display: grid;
+    grid-template-columns: 40px 1fr max-content;
+    grid-gap: 10px;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #ffffff;
+    padding: 20px 20px 20px 15px;
+  }
+  
+  .conversation.active,
+  .conversation:hover {
+    background: #F5F5F5;
+  }
+  
+  .conversation:hover {
+    cursor: pointer;
+  }
+  
+  .conversation > img {
+    grid-row: span 2;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+  }
+  
+  .title-text {
+    font-weight: bold;
+    color:#1c1c1c;
+    padding-left: 5px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .created-date {
+    color: #333333;
+    white-space: nowrap;
+    font-size: 1rem;
+  }
+  
+  .conversation-message {
+    grid-column: span 2;
+    color: #8f8f8f;
+    padding-left: 5px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
